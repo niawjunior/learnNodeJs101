@@ -1,16 +1,16 @@
 // read file
-const fs = require('fs');
-fs.readFile("Read.txt", (err, data) => {
-    if(err) throw err;
-    console.log(data.toString());
-});
+const fs = require('fs')
+fs.readFile('Read.txt', (err, data) => {
+  if (err) throw err
+  console.log(data.toString())
+})
 // create file
-fs.appendFile("Read1.txt", "appended data", (err) => {
-    if(err) throw err;
-    console.log("Completed Appending");
-});
+fs.appendFile('Read1.txt', 'appended data', (err) => {
+  if (err) throw err
+  console.log('Completed Appending')
+})
 
-fs.unlink("Read1.txt", (err) => {
-    if(err) throw err;
-    console.log("Completed Deleting");
+fs.unlink('Read1.txt', (err) => {
+  if (err) throw err
+  console.log('Completed Deleting')
 })
