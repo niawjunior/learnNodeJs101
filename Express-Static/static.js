@@ -18,7 +18,11 @@ app.get('/customer/:customerId', (req, res) => {
       customerName = customerList[i].name
     }
   }
-  res.send('Customer ID:' + req.params.customerId + ' has a name: ' + customerName)
+  if (customerName !== undefined) {
+    res.send('Customer ID:' + req.params.customerId + ' has a name: ' + customerName)
+  } else {
+    res.send('Customer ID:' + req.params.customerId + ' does not exist')
+  }
 })
 
 app.get('/customers', (req, res) => {
