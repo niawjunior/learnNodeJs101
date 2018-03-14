@@ -25,7 +25,7 @@ MongoClient.connect('mongodb://localhost:/27017', (err, dbclient) => {
         console.log('Updated record count:' + status.modifiedCount)
       })
     }
-    NOTES_COLLECTION.deleteOne({'date': new Date().getDate()}, (err, result) => {
+    NOTES_COLLECTION.deleteOne({'date': new Date().getDate() - 1}, (err, result) => {
       if (err) throw err
       console.log('Deleted Record Count:' + result.deletedCount)
     })
