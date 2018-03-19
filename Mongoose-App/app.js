@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
-
-var db = require('./db/mongoose')
+require('./db/mongoose')
 var NoteModel = require('./models/note')
 
 var note = new NoteModel({
@@ -28,10 +27,10 @@ NoteModel.find({})
   .catch(err => {
     console.log(err)
   })
-NoteModel.findById('5aae4c1fa38fa0477cd3cdfd')
-  .then(result => {
-    console.log(result)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+// NoteModel.findById('5aae4c1fa38fa0477cd3cdfd')
+//   .then(result => {
+//     console.log(result)
+//   })
+//   .catch(err => {
+//     console.log(err)
+//   })
