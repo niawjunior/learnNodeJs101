@@ -1,7 +1,6 @@
-const mongoose = require('mongoose')
 const express = require('express')
 const bodyParser = require('body-parser')
-var db = require('./db/mongoose')
+require('./db/mongoose')
 var Customer = require('./models/customer')
 var app = express()
 const PORT = 3000
