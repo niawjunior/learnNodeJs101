@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const bcrypt = require('bcrypt')
 require('./db/mongoose')
 var Customer = require('./models/customer')
 var app = express()
@@ -14,12 +15,16 @@ const PORT = 3000
 app.use(bodyParser.json())
 app.post('/customer/create', (req, res) => {
   var customer = new Customer(req.body)
-  customer.save().then(result => {
-    console.log(result)
-    res.send(result)
-  }).catch(err => {
-    console.log(err)
-    res.status(400).send(err)
+  bcrypt.hash(req.body.password, 10, (err, hashPassword) => {
+    if (err) throw err
+    customer.password = hashPassword
+    customer.save().then(result => {
+      console.log(result)
+      res.send(result)
+    }).catch(err => {
+      console.log(err)
+      res.status(400).send(err)
+    })
   })
 })
 app.get('/customers', (req, res) => {

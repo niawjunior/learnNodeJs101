@@ -22,6 +22,10 @@ var CustomerSchema = new Schema({
     required: true,
     unique: true
   },
+  password: {
+    type: String,
+    required: true
+  },
   phone: {
     type: String,
     trim: true,
